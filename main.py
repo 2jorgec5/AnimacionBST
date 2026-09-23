@@ -6,7 +6,7 @@ class AnimacionBST(Scene):
         # --- SECCIÓN 1: TÍTULO Y CRÉDITOS ---
         titulo = Text("Binary Search Tree (BST)", font_size=48, weight=BOLD)
         curso = Text("Algoritmos y Estructuras de Datos", font_size=32)
-        autores = Text("Autores:\n- Jorge Andres Cuevas Sanchez\n- Mendez Haro, Italo Stefano\n- Trillo Ñahui Nicolas Fabian",font_size=24, color=GRAY)
+        autores = Text("Autores:\n- Jorge Andres Cuevas Sanchez\n- Italo Stefano Mendez Haro\n- Nicolas Fabian Trillo Ñahui",font_size=24, color=GRAY)
 
         grupo_intro = VGroup(titulo, curso, autores).arrange(DOWN, buff=0.5)
 

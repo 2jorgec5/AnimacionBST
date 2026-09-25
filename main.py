@@ -4,6 +4,7 @@ from manim import *
 class AnimacionBST(Scene):
     def construct(self):
         # --- SECCIÓN 1: TÍTULO Y CRÉDITOS ---
+        self.add_sound("audio/01_intro.mp3")
         titulo = Text("Binary Search Tree (BST)", font_size=48, weight=BOLD)
         curso = Text("Algoritmos y Estructuras de Datos", font_size=32)
         autores = Text("Autores:\n- Jorge Andres Cuevas Sanchez\n- Italo Stefano Mendez Haro\n- Nicolas Fabian Trillo Ñahui ",font_size=24, color=GRAY)
@@ -13,10 +14,11 @@ class AnimacionBST(Scene):
         self.play(Write(titulo, run_time=2))
         self.play(FadeIn(curso, shift=UP, run_time=1.5))
         self.play(FadeIn(autores, run_time=1.5))
-        self.wait(3.5)
+        self.wait(11.5)
         self.play(FadeOut(grupo_intro, run_time=1.5))
 
         # --- SECCIÓN 2: DEFINICIÓN Y PROPIEDADES ---
+        self.add_sound("audio/02_definicion.mp3")
         titulo_prop = Text("¿Qué es un Binary Search Tree?", font_size=36).to_edge(UP)
         self.play(Write(titulo_prop, run_time=1.5))
 
@@ -59,7 +61,7 @@ class AnimacionBST(Scene):
         self.play(Create(box_der), run_time=1.5)
         t_der = Text("Mayores (> 50)", font_size=20, color=RED_D).next_to(box_der, RIGHT, buff=0.3)
         self.play(FadeIn(t_der, shift=LEFT))
-        self.wait(2.5)
+        self.wait(5.5)
 
         self.play(
             FadeOut(box_izq), FadeOut(box_der), FadeOut(cursor_raiz),
@@ -67,6 +69,7 @@ class AnimacionBST(Scene):
         )
 
         # --- SECCIÓN 3: INSERCIÓN (INSERT) ---
+        self.add_sound("audio/03_insercion.mp3")
         titulo_insert = Text("Operación: Insert (key = 25)", font_size=36).to_edge(UP)
         self.play(Write(titulo_insert, run_time=1.5))
 
@@ -111,6 +114,7 @@ class AnimacionBST(Scene):
         self.play(FadeOut(texto_paso4), FadeOut(titulo_insert))
 
         # --- SECCIÓN 4: BÚSQUEDA (SEARCH) ---
+        self.add_sound("audio/04_busqueda.mp3")
         titulo_search = Text("Operación: Search (key = 40)", font_size=36).to_edge(UP)
         self.play(Write(titulo_search, run_time=1.5))
 
@@ -136,6 +140,7 @@ class AnimacionBST(Scene):
         self.play(FadeOut(cursor_search), FadeOut(t_search3), FadeOut(titulo_search))
 
         # --- SECCIÓN 5: ELIMINACIÓN (REMOVE) ---
+        self.add_sound("audio/05_eliminacion.mp3")
         titulo_remove = Text("Operación: Remove (key = 40)", font_size=36).to_edge(UP)
         self.play(Write(titulo_remove, run_time=1.5))
 
@@ -152,16 +157,17 @@ class AnimacionBST(Scene):
 
         self.play(FadeOut(arbol_bst.vertices[40], shift=DOWN), FadeOut(arbol_bst.edges[(30, 40)]),
                   FadeOut(cursor_remove), run_time=2)
-        self.wait(2)
+        self.wait(3.5)
         self.play(FadeOut(t_remove2), FadeOut(titulo_remove))
 
         # --- SECCIÓN 6: RECORRIDOS (DFS TRAVERSALS) ---
+        self.add_sound("audio/06_recorridos_intro.mp3")
         titulo_trav = Text("Recorridos de Árbol (DFS)", font_size=36).to_edge(UP)
         self.play(Write(titulo_trav, run_time=1.5))
 
         t_trav_desc = Text("Visitan todos los nodos en un orden sistemático", font_size=24).to_edge(DOWN)
         self.play(Write(t_trav_desc, run_time=1.5))
-        self.wait(2.5)
+        self.wait(6.5)
         self.play(FadeOut(t_trav_desc))
 
         nodos_obj = {
@@ -184,7 +190,14 @@ class AnimacionBST(Scene):
         # SOLUCIÓN: Usamos un cursor móvil en lugar de alterar los colores
         cursor_trav = Circle(radius=0.5, color=WHITE, stroke_width=4)
 
-        for nombre, desc, seq, color in recorridos:
+        audios_recorridos = [
+            "audio/07_inorder.mp3",
+            "audio/08_preorder.mp3",
+            "audio/09_postorder.mp3"
+        ]
+
+        for (nombre, desc, seq, color), audio in zip(recorridos, audios_recorridos):
+            self.add_sound(audio)
             t_nombre = Text(nombre, font_size=28, color=color).to_edge(DOWN).shift(UP * 0.8)
             t_desc = Text(desc, font_size=20).next_to(t_nombre, DOWN)
             self.play(Write(t_nombre), Write(t_desc), run_time=1.5)
@@ -203,7 +216,7 @@ class AnimacionBST(Scene):
 
                 self.play(FadeIn(seq_text[i], shift=UP), run_time=0.4)
 
-            self.wait(3.5)
+            self.wait(4.5)
             self.play(FadeOut(t_nombre), FadeOut(t_desc), FadeOut(seq_text), FadeOut(cursor_trav))
 
         self.wait(2)

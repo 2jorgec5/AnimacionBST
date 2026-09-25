@@ -8,7 +8,7 @@
 **Curso:** CS2023 Algoritmos y Estructuras de Datos
 
 ## Descripción del Proyecto
-Este repositorio contiene una animación interactiva desarrollada con la biblioteca Manim (Community Edition) en Python. El video final demuestra de manera visual y didáctica el funcionamiento de un **Binary Search Tree (BST)**, cumpliendo con los requisitos del proyecto y detallando paso a paso las operaciones fundamentales de la estructura.
+Este repositorio contiene una animación educativa desarrollada con Manim Community Edition en Python. El video final demuestra de manera visual y didáctica el funcionamiento de un **Binary Search Tree (BST)**, cumpliendo con los requisitos del proyecto y detallando paso a paso las operaciones fundamentales de la estructura.
 
 Las operaciones y conceptos ilustrados en el video incluyen:
 * **Definición Teórica:** Propiedad fundamental del árbol donde el subárbol izquierdo es menor a la raíz y el derecho es mayor.
@@ -16,6 +16,7 @@ Las operaciones y conceptos ilustrados en el video incluyen:
 * **Búsqueda (Search):** Recorrido condicional para encontrar la clave `40` descartando ramas innecesarias.
 * **Eliminación (Remove):** Resolución del Caso 1 (Nodo Hoja) liberando memoria y anulando el puntero del padre para la clave `40`.
 * **Recorridos DFS (Tree Traversals):** Ejecución sistemática de In-order, Pre-order y Post-order.
+* **Narración por voz:** Explicación mediante voz generada con inteligencia artificial, sincronizada con cada operación mostrada en la animación.
 
 ## Software Requerido
 * **Python:** 3.14
